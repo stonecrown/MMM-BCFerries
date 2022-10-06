@@ -1,0 +1,77 @@
+/* title header */
+.header {
+  font-size: 75%;
+  display: inline-block;
+  -o-transform: translate(0, -3px);
+  -moz-transform: translate(0, -3px);
+  -ms-transform: translate(0, -3px); /* IE 9 */
+  -webkit-transform: translate(0, -3px); /* Safari */
+  transform: translate(0, -3px);
+}
+
+/* sailings table header */
+.thead1 {
+  text-align: left;
+}
+.thead2 {
+  text-align: center;
+}
+.thead3 {
+  text-align: center;
+}
+.thead4 {
+  text-align: right;
+}
+
+
+/* vehicle deck space */
+.fillspace {
+  padding-left: 7px;
+  padding-right: 7px;
+  text-align: right;
+}
+
+.timesched {
+  text-align: left;
+  padding-right: 5px;
+}
+
+.timeactual {
+  padding-left: 10px;
+}
+
+
+/* ferry vessel name xxsmall */
+.vesselname {
+  font-size: 0.5rem;
+  max-width: 140px;
+  overflow: hidden;
+  padding-left: 10px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status {
+  padding-left: 10px;
+  text-align: right;
+}
+
+/* (status) text colours */
+.alert {
+  color: #ff0000;
+}
+
+.warn {
+  color: #e5a630;
+}
+
+.good
+ {
+  color: #00ff00
+}
+
+.nonews {
+  color: #ffffff
+}
+
