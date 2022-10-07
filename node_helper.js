@@ -1,6 +1,6 @@
-/* BC Ferries Sailings Schedule */
-
-/* Magic Mirror
+/* BC Ferries Sailings Schedule
+ * Magic Mirror 
+ * node helper to fetch sailings data 
  * Module: MMM-BCFerries  by Tom Hayward
  * based on MMM-TFL-Arrivals by Ricardo Gonzalez
  * MIT Licensed.
