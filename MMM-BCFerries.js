@@ -26,7 +26,7 @@ Module.register("MMM-BCFerries", {
         vessel_status: "",
         // showVesselIcon: false,  // not yet implemented
         showVesselName: false, // show name of ferry
-        showFillSplit: false,  // show percentages of filled space on standard vehicle (car/can/suv) and oversize vehicle (car/van/suv/truck/bus/rv) parking decks
+        showFillSplit: false,  // show percentages of filled space on standard vehicle (car/can/suv) and oversize vehicle (truck/bus/rv) parking decks
 
         debug: false       // enable debug info to be sent to console log
     },
