@@ -4,32 +4,31 @@
  * by Tom Hayward
  *
  * derived from MMM-TFL-Arrivals  by Ricardo Gonzalez  https://github.com/ryck/MMM-TFL-Arrivals
- * many thanks to Samuel Pratt for developing the BC Ferries API used in this module  https://github.com/samuel-pratt/bc-ferries-api
+ * many thanks to Samuel Pratt for developing the BC Ferries API and providing API services as used in this module  https://github.com/samuel-pratt/bc-ferries-api
  * MIT Licensed.
  */
 Module.register("MMM-BCFerries", {
     defaults: {
-        app_id: "",
-        app_key: "",
-        updateInterval: 5 * 60 * 1000, // update info every 5 minutes
-        animationSpeed: 2000,
-        fade: true,
-        fadePoint: 0.25, // Start on 1/4th of the list.
-        limit: 8,        // limit number of results displayed
+        app_id: "",        // not currently required for BC Ferries API
+        app_key: "",       // not currently required for BC Ferries API
+        updateInterval: 5, // update info every 5 minutes
+        animationSpeed: 2000,  // time in milliseconds for update animation
+        fade: true,        // enable fade to black in displayed list of results
+        fadePoint: 0.25,   // (fractional) start position to fade listed results
         initialLoadDelay: 0, // start delay in milliseconds.
-        colour: true,    // use colour text to highlight selected data fields
+        colour: true,      // enable colour text to highlight selected data fields
 
-        customHeader: "",
-        maxWidth: "400px",
-        maxResults: 8, //Maximum number of results to display
-        termCodeDep: "",  // departure terminal code
-        termCodeDst: "",  // destination terminal code
+        customHeader: "",  // custom text to prefix route info in header
+        maxWidth: "400px", // maximum display width allowed for this module
+        maxResults: 10,    // maximum number of results to display
+        termCodeDep: "",   // departure terminal code for BC Ferries API
+        termCodeDst: "",   // destination terminal code for BC Ferries API
         vessel_status: "",
         // showVesselIcon: false,  // not yet implemented
         showVesselName: false, // show name of ferry
-        showFillSplit: false,  // show breakdown of filled space on standard vehicle (car/can/suv) and oversize vehicle (car/van/suv/truck/bus/rv) parking decks
+        showFillSplit: false,  // show percentages of filled space on standard vehicle (car/can/suv) and oversize vehicle (car/van/suv/truck/bus/rv) parking decks
 
-        debug: false
+        debug: false       // enable debug info to be sent to console log
     },
 
     start: function() {
@@ -38,6 +37,7 @@ Module.register("MMM-BCFerries", {
             this.data.classes = "bright medium";
         }
         // set up the local values and construct the request url for retrieving sailings data
+        // store each terminal name with corresponding 3-letter terminal code in array (for use in displayed route info)
         this.apiBase = "https://bcferriesapi.ca/api/";  // BC Ferries API - for more info, see https://github.com/samuel-pratt/bc-ferries-api
         this.termNames = {BOW: 'Bowen Island', DUK: 'Nanaimo (Duke Point)', FUL: 'Saltspring Island (Fulford Harbour)', HSB: 'Horseshoe Bay', LNG: 'Langdale', NAN: 'Nanaimo (Departure Bay)', SGI: 'Southern Gulf Islands', SWB: 'Swartz Bay', TSA: 'Tsawwassen'};
         this.loaded = false;
@@ -92,20 +92,6 @@ Module.register("MMM-BCFerries", {
             return wrapper;
         }
 
-        /*
-        note: app_id and app_key not currently required for BC Ferries API
-        if (this.config.app_id === "") {
-            wrapper.innerHTML = "Please set the application ID: " + this.app_id + ".";
-            wrapper.className = "dimmed light small";
-            return wrapper;
-        }
-
-        if (this.config.app_key === "") {
-            wrapper.innerHTML = "Please set the application key: " + this.app_key + ".";
-            wrapper.className = "dimmed light small";
-            return wrapper;
-        }
-        */
 
         if (!this.loaded) {
             wrapper.innerHTML = "Loading sailings schedule...";
@@ -113,12 +99,12 @@ Module.register("MMM-BCFerries", {
             return wrapper;
         }
         
-        // show header if sailings data was received - use default header includes route info
+        // show header with route description if sailings data was received -- use custom header if supplied
         if (this.vsailings.data !== null) {
             if (this.config.customHeader !== "") {
                 this.config.header = this.config.customHeader + "</br>" + this.termNames[this.config.termCodeDep] + " &rarr; " + this.termNames[this.config.termCodeDst] + "";                
             } else { 
-                this.config.header = "Ferry Schedule</br>" + this.termNames[this.config.termCodeDep] + " &rarr; " + this.termNames[this.config.termCodeDst] + "";
+                this.config.header = this.termNames[this.config.termCodeDep] + " &rarr; " + this.termNames[this.config.termCodeDst] + "";
             }
         }
     
@@ -138,8 +124,8 @@ Module.register("MMM-BCFerries", {
             var counter = this.vsailings.data.length;
 
             // limit number of displayed results, if necessary
-            if (counter > this.config.limit) {
-                counter = this.config.limit;
+            if (counter > this.config.maxResults) {
+                counter = this.config.maxResults;
             }
 
             // add table header
@@ -356,13 +342,13 @@ Module.register("MMM-BCFerries", {
 
     /* scheduleUpdate()
      * schedule next update.
-     * argument (delay) is value in milliseconds before next update -- if empty, this.config.updateInterval is used.
+     * argument (delay) is value in milliseconds before next update -- if empty, this.config.updateInterval is used
      */
     scheduleUpdate: function(delay) {
-        var nextLoad = this.config.updateInterval;
+        var nextLoad = this.config.updateInterval * 60 * 1000; // convert minutes to milliseconds for interval timer
         if (typeof delay !== "undefined" && delay >= 0) {
             nextLoad = delay;
-        }
+        } 
 
         var self = this;
         clearTimeout(this.updateTimer);
@@ -375,7 +361,7 @@ Module.register("MMM-BCFerries", {
     socketNotificationReceived: function(notification, payload) {
         if (notification === "SAILINGS_DATA" && payload.url === this.url) {
             this.processSailings(payload.data);
-            this.scheduleUpdate(this.config.updateInterval);
+            this.scheduleUpdate(this.config.updateInterval * 60 * 1000); // convert minutes to milliseconds for interval timer
         }
     }
     
