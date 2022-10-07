@@ -6,11 +6,9 @@ This MagicMirror<sup>2</sup> module displays the current info for scheduled sail
 
 
 ## Usage 
-
 You need to install the module for your MagicMirror.
 
-### Installation
-
+## Installation
 Navigate into your MagicMirror's modules folder:
 
 ```shell
@@ -22,8 +20,7 @@ git clone https://github.com/stonecrown/MMM-BCFerries
 ```
 Configure the module in your config.js file.
 
-### Configuration
-
+## Configuration
 Add module configuration to config.js.
 
 example `config.js`:
@@ -63,7 +60,7 @@ The following options for this module can be included in config.js
 |`showFillSplit`|Enable display of percentage of filled space for standard vehicle [car/van/suv] vs. oversize vehicle [truck/bus/rv] parking decks. <br><br>**Type:** `boolean` <br>**Possible values:** `true` or `false` <br> **Default value:** `false`|
 |`debug`|Enable debug messages to be sent to console log. <br><br>**Type:** `boolean` <br>**Possible values:** `true` or `false` <br> **Default value:** `false`|
 
-#### ferry terminal codes ####
+### ferry terminal codes ###
 This module requires that 3-letter codes be specified for *both* the departure and destination terminals
 as these are used with the BC Ferries API to fetch the sailings info for a given route. 
 
@@ -83,6 +80,10 @@ Valid 3-letter codes for BC Ferries departure and destination terminals are as f
   Note also that the destination terminal must correspond with its actual departure terminal, 
   otherwise the API will return an error result.
 ```
+
+## Dependencies
+- [request](https://www.npmjs.com/package/request) (installed via `npm install`)
+
 
 ## Thanks To...
 
