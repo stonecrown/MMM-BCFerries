@@ -50,15 +50,15 @@ example `config.js`:
 The following options for this module can be included in config.js
 |Option|Description|
 |---|---|
-|`termCodeDep`| **Required** Ferry departure terminal: specify with 3-letter code for use in BC Ferries API.<br><br>**Type:** `string` <br>**Possible values:** see [ferry terminal codes](https://github.com/stonecrown/MMM-BCFerries/edit/main/README.md#ferry-terminal-codes) below.|
-|`termCodeDst`| **Required** Ferry destination terminal: specify with 3-letter code for use in BC Ferries API.<br><br>**Type:** `string` <br>**Possible values:** see [ferry terminal codes](https://github.com/stonecrown/MMM-BCFerries/edit/main/README.md#ferry-terminal-codes) below.|
+|`termCodeDep`| **Required** Ferry departure terminal: specified as 3-letter code for use with BC Ferries API.<br><br>**Type:** `string` <br>**Possible values:** see [ferry terminal codes](https://github.com/stonecrown/MMM-BCFerries/edit/main/README.md#ferry-terminal-codes) below.|
+|`termCodeDst`| **Required** Ferry destination terminal: specified as 3-letter code for use with BC Ferries API.<br><br>**Type:** `string` <br>**Possible values:** see [ferry terminal codes](https://github.com/stonecrown/MMM-BCFerries/edit/main/README.md#ferry-terminal-codes) below.|
 |`maxResults`|Maximum number of sailings to display.<br><br>**Type:** `integer`<br> **Default value:** `10`|
-|`updateInterval`|Period of time (in minutes) between refresh of ferry sailings info<br><br>**Type:** `integer`<br> **Default value:** `5`|
-|`animationSpeed`|Speed of the update animation (in milliseconds)<br><br>**Type:** `integer` <br>**Possible values:**`0` - `5000`<br> **Default value:** `2000` (2 seconds)|
+|`updateInterval`|Period of time (in minutes) between refresh of ferry sailings data.<br><br>**Type:** `integer`<br> **Default value:** `5`|
+|`animationSpeed`|Speed of the update animation (in milliseconds).<br><br>**Type:** `integer` <br>**Possible values:**`0` - `5000`<br> **Default value:** `2000` (2 seconds)|
 |`customHeader`|Additional text to prefix route info in module header.<br>NOTE: The route (Departure -> Destination) info is always shown in header. <br><br>**Type:** `string` <br> **Default value:** ``|
 |`maxWidth`|Maximum width of the displayed module in pixels. Unlimited when set to `0`.<br>This option can be used to make the module narrower, if required. <br><br>**Type:** `integer` <br> **Default value** `400`|
-|`fade`|Enable fade of displayed rows in listed result(s) <br>**Type:** `boolean` <br>**Possible values:** `true` or `false` <br> **Default value:** `true` |
-|`fadePoint`|Position (percentage) in listed results at which to start fade.<br><br>**Type:** `float` <br>**Possible values:** between `0` (top of list) and `1` (bottom of list) <br> **Default value:** `0.25`|
+|`fade`|Enable fade-to-black of displayed rows in listed results. <br>**Type:** `boolean` <br>**Possible values:** `true` or `false` <br> **Default value:** `true` |
+|`fadePoint`|Fractional start position at which to start fade of listed results.<br><br>**Type:** `float` <br>**Possible values:** between `0` (top of list) and `1` (bottom of list) <br> **Default value:** `0.25`|
 |`colour`|Enable colour text in display for filled space percentages when nearing deck vehicle capacity.<br><br>**Type:** `boolean` <br>**Possible values:** `true` or `false` <br> **Default value:** `true`|
 |`showFillSplit`|Enable display of percentage of filled space for standard vehicle (car/can/suv) vs. oversize vehicle (car/van/suv/truck/bus/rv) parking decks. <br><br>**Type:** `boolean` <br>**Possible values:** `true` or `false` <br> **Default value:** `false`|
 |`debug`|Enable debug messages to be sent to console log. <br><br>**Type:** `boolean` <br>**Possible values:** `true` or `false` <br> **Default value:** `false`|
@@ -80,7 +80,7 @@ Valid 3-letter terminal codes for calls to the BC Ferries API are as follows:
 "BOW" -> Bowen Island*
 
   * asterisked items indicate codes that can be used only to specify the destination terminal (not departure).
-  Note also that the destination terminal must correspond with its departure terminal, 
+  Note also that the destination terminal must correspond with its actual departure terminal, 
   otherwise the API will return an error result.
 ```
 
