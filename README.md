@@ -5,8 +5,6 @@ This MagicMirror<sup>2</sup> module displays the current info for scheduled sail
 ![MMM-BCFerries--preview](https://user-images.githubusercontent.com/54690747/194432750-0292c87d-e77f-4411-8317-54c117a1fc04.jpg)
 
 
-## Usage 
-You need to install the module for your MagicMirror.
 
 ## Installation
 Navigate into your MagicMirror's modules folder:
@@ -18,12 +16,15 @@ Clone this repository:
 ```shell
 git clone https://github.com/stonecrown/MMM-BCFerries
 ```
-Configure the module in your config.js file.
+Change to newly created folder and install dependencies:
+```
+cd MMM-BCFerries
+npm install
+```
 
-## Configuration
-Add module configuration to config.js.
+## Using the module
+To use this module, add the configuration block shown below into your MagicMirror config.js file and adjust the module options (noted in [Configuration](https://github.com/stonecrown/MMM-BCFerries/edit/main/README.md#Configuration) section) to suit your requirements.
 
-example `config.js`:
 
 ```js
 {
@@ -33,7 +34,7 @@ example `config.js`:
   config: {
     debug: false,
     maxWidth: "360px",
-    customHeader: "BC Ferries Sailings",  // default header is "FERRY SAILINGS"
+    customHeader: "BC Ferries Sailings",  // default custom header is "" (none)
     termCodeDep: "LNG",  // *required* ferry departure terminal code
     termCodeDst: "HSB",  // *required* ferry destination terminal code
     maxResults: 8,       // optional - limit the number of results to display.
@@ -43,7 +44,7 @@ example `config.js`:
 },
 ```
 
-
+## Configuration
 The following options for this module can be included in config.js
 |Option|Description|
 |---|---|
