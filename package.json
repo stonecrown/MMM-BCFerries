@@ -1,0 +1,28 @@
+{
+  "name": "MMM-BCFerries",
+  "version": "1.0.0",
+  "description": "MagicMirror 2 module to display BC Ferries schedule for sailings on specified route.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stonecrown/MMM-BCFerries"
+  },
+  "keywords": [
+    "magic mirror",
+    "smart mirror",
+    "transport",
+    "ferry",
+    "ferries",
+    "vancouver",
+    "British Columbia",
+    "module"
+  ],
+  "author": "Tom Hayward",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stonecrown/MMM-BCFerries/issues"
+  },
+  "homepage": "https://github.com/stonecrown/MMM-BCFerries#readme",
+  "dependencies": {
+    "request": "latest"
+  }
+}
