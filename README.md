@@ -23,7 +23,7 @@ npm install
 ```
 
 ## Using the module
-To use this module, add the configuration block shown below into your MagicMirror config.js file and adjust the module options (noted in [Configuration](https://github.com/stonecrown/MMM-BCFerries/README.md#Configuration) section) to suit your requirements.  
+To use this module, add the configuration block shown below into your MagicMirror config.js file and adjust the module options (noted in [Configuration](https://github.com/stonecrown/MMM-BCFerries#Configuration) section) to suit your requirements.  
 
 
 ```js
