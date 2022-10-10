@@ -23,7 +23,7 @@ npm install
 ```
 
 ## Using the module
-To use this module, add the configuration block shown below into your MagicMirror config.js file and adjust the module options (noted in [Configuration](https://github.com/stonecrown/MMM-BCFerries/edit/main/README.md#Configuration) section) to suit your requirements.
+To use this module, add the configuration block shown below into your MagicMirror config.js file and adjust the module options (noted in [Configuration](https://github.com/stonecrown/MMM-BCFerries/README.md#Configuration) section) to suit your requirements.  
 
 
 ```js
@@ -48,8 +48,8 @@ To use this module, add the configuration block shown below into your MagicMirro
 The following options for this module can be included in config.js
 |Option|Description|
 |---|---|
-|`termCodeDep`| **Required** Ferry departure terminal: specified as 3-letter code for use with BC Ferries API.<br><br>**Type:** `string` <br>**Possible values:** see [ferry terminal codes](https://github.com/stonecrown/MMM-BCFerries/edit/main/README.md#ferry-terminal-codes) below.|
-|`termCodeDst`| **Required** Ferry destination terminal: specified as 3-letter code for use with BC Ferries API.<br><br>**Type:** `string` <br>**Possible values:** see [ferry terminal codes](https://github.com/stonecrown/MMM-BCFerries/edit/main/README.md#ferry-terminal-codes) below.|
+|`termCodeDep`| **Required** Ferry departure terminal: specified as 3-letter code for use with BC Ferries API.<br><br>**Type:** `string` <br>**Possible values:** see [ferry terminal codes](https://github.com/stonecrown/MMM-BCFerries#ferry-terminal-codes) below.|
+|`termCodeDst`| **Required** Ferry destination terminal: specified as 3-letter code for use with BC Ferries API.<br><br>**Type:** `string` <br>**Possible values:** see [ferry terminal codes](https://github.com/stonecrown/MMM-BCFerries#ferry-terminal-codes) below.|
 |`maxResults`|Maximum number of sailings to display.<br><br>**Type:** `integer`<br> **Default value:** `10`|
 |`updateInterval`|Period of time (in minutes) between refresh of ferry sailings data.<br><br>**Type:** `integer`<br> **Default value:** `5`|
 |`animationSpeed`|Speed of the update animation (in milliseconds).<br><br>**Type:** `integer` <br>**Possible values:**`0` - `5000`<br> **Default value:** `2000` (2 seconds)|
@@ -84,6 +84,7 @@ Valid 3-letter codes for BC Ferries departure and destination terminals are as f
 
 ## Dependencies
 - [request](https://www.npmjs.com/package/request) (installed via `npm install`)
+- [BC Ferries API](https://www.bcferriesapi.ca/)  (API key is not currently requied for aceess)
 
 
 ## Thanks To...
