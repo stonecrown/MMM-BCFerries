@@ -84,7 +84,7 @@ Valid 3-letter codes for BC Ferries departure and destination terminals are as f
 
 ## Dependencies
 - [request](https://www.npmjs.com/package/request) (installed via `npm install`)
-- [BC Ferries API](https://www.bcferriesapi.ca/)  (API key is not currently requied for aceess)
+- [BC Ferries API](https://www.bcferriesapi.ca/) &nbsp;  public access API - a key is not currently required.
 
 
 ## Thanks To...
